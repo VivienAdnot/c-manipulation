@@ -1,6 +1,3 @@
-#include<stdio.h>
-#include "menu.h"
-
-int printmenu() {
-    return 0;
+char printmenu() {
+    return 'A';
 }

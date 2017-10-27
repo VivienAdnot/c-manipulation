@@ -4,7 +4,8 @@
 
 int main()
 {
-    printmenu();
+    char val = printmenu();
+    printf("printmenu return = %c\n", val );
 
     int ch;
 
