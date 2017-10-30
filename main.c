@@ -7,18 +7,12 @@
 
 int main()
 {
-    int arr[6] = {5, 2, 4, 7, 3, 6};
+    int arr[5] = {2, 5, 3, 1, 4};
 
     int i;
-    int arrlength = 6;
-
-    printf("start\n");
-    printArray(arr, arrlength);
+    int arrlength = 5;
 
     bubbleSort(arr, arrlength);
-
-    printf("end\n");
-
     printArray(arr, arrlength);
 
     // char[] greetings = printmenu();
