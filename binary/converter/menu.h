@@ -1,3 +1,3 @@
 #include "menu.c"
 
-extern char printmenu();
+extern char[] printmenu();
