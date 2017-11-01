@@ -1,11 +1,9 @@
 #include <stdlib.h>
-#include<stdio.h>
-//#include "binary/converter/menu.h"
-
-#include "concepts/tester.h"
+#include <stdio.h>
+#include "binary/calculator/menu.h"
 
 int main()
 {
-    test();
+    printf("menu result: %d\n", menu());
     return 0;
 }
