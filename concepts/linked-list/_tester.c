@@ -6,4 +6,6 @@ void test()
     display(list);
     append(list, 4);
     display(list);
+    delete(list, 2);
+    display(list);
 }

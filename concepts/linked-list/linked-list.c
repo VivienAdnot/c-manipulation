@@ -46,6 +46,22 @@ void append(LinkedList *list, int elementValue) {
     current->next = newElement;
 }
 
+void delete(LinkedList *list, int elementValue) {
+    Element *current = list->first;
+
+    if (current == NULL) {
+        return;
+    }
+
+    while (current->next != NULL) {
+        if (current->next->data == elementValue) {
+            current->next = current->next->next;
+            break;
+        }
+        current = current->next;
+    }
+}
+
 void display(LinkedList *list) {
     if (list == NULL) {
         exit(EXIT_FAILURE);
