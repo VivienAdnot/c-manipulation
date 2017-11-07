@@ -1,9 +1,16 @@
 #include <stdio.h>
-#include "element.h"
 
+typedef struct Element Element;
+struct Element
+{
+    int data;
+    Element *next;
+};
+
+typedef struct LinkedList LinkedList;
 struct LinkedList {
     Element *first;
-}
+};
 
 LinkedList *init() {
     LinkedList *list = malloc(sizeof(*list));
