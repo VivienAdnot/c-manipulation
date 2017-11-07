@@ -1,8 +1,8 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-#include "../utilities/print.h"
-#include "arrays/bubbleSort.h"
+#include "../../utilities/print.h"
+#include "bubbleSort.h"
 
 #define ARRAY_SIZE 5
 
