@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "concepts/strings/_tester.h"
+#include "binary/_tester.h"
 
 int main()
 {
