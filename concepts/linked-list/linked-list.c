@@ -12,7 +12,7 @@ struct LinkedList {
     Element *first;
 };
 
-LinkedList *init() {
+LinkedList *init(int elementValue) {
     LinkedList *list = malloc(sizeof(*list));
     Element *element = malloc(sizeof(*element));
 
@@ -20,12 +20,30 @@ LinkedList *init() {
         exit(EXIT_FAILURE);
     }
 
-    element->data = 0;
+    element->data = elementValue;
     element->next = NULL;
 
     list->first = element;
 
     return list;
+}
+
+void append(LinkedList *list, int elementValue) {
+    Element *current = list->first;
+
+    Element *newElement = malloc(sizeof(*newElement));
+    newElement->data = elementValue;
+    newElement->next = NULL;
+
+    if (current == NULL) {
+        current = newElement;
+    }
+
+    while (current->next != NULL) {
+        current = current->next;
+    }
+
+    current->next = newElement;
 }
 
 void display(LinkedList *list) {
