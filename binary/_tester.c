@@ -3,8 +3,5 @@
 
 void test()
 {
-    char test[5] = "1010";
-    char test2[5] = "1000";
-
-    printf("result: %s\n", addition(test, test2));
+    printf("result: %d\n", addition(6, 7));
 }

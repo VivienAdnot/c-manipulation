@@ -1,3 +1,3 @@
 #include "addition.c"
 
-extern char* addition(char str1[], char str2[]);
+extern int addition(int number1, int number2);
