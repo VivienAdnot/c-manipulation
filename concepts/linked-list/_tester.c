@@ -4,7 +4,6 @@ void test()
 {
     LinkedList *list = init(2);
     prepend(list, 4);
-    append(list, 6);
-    delete(list, 2);
+    clear(list);
     display(list);
 }

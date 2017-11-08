@@ -117,3 +117,18 @@ void display(LinkedList *list) {
     }
     printf("NULL\n");
 }
+
+void clear(LinkedList *list) {
+    if (list == NULL) {
+        exit(EXIT_FAILURE);
+    }
+
+    Element *current = list->first;
+
+    while (current != NULL) {
+        Element* toBeDeleted = current;
+        current = current->next;
+        free(toBeDeleted);
+    }
+    list->first = NULL;
+}
