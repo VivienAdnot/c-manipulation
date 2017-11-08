@@ -28,12 +28,37 @@ LinkedList *init(int elementValue) {
     return list;
 }
 
+void prepend(LinkedList *list, int elementValue) {
+    if (list == NULL) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (list->first == NULL) {
+        Element *newElement = malloc(sizeof(*newElement));
+        newElement->data = elementValue;
+        newElement->next = NULL;
+
+        list->first = newElement;
+    }
+    else {
+        Element *newElement = malloc(sizeof(*newElement));
+        newElement->data = elementValue;
+        newElement->next = list->first;
+
+        list->first = newElement;
+    }
+}
+
 void append(LinkedList *list, int elementValue) {
-    Element *current = list->first;
+    if (list == NULL) {
+        exit(EXIT_FAILURE);
+    }
 
     Element *newElement = malloc(sizeof(*newElement));
     newElement->data = elementValue;
     newElement->next = NULL;
+
+    Element *current = list->first;
 
     if (current == NULL) {
         current = newElement;
@@ -50,6 +75,7 @@ void delete(LinkedList *list, int elementValue) {
     if (list == NULL) {
         exit(EXIT_FAILURE);
     }
+
     Element *current = list->first;
 
     if (current == NULL) {
