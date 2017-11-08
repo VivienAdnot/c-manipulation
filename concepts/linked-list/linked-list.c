@@ -114,7 +114,7 @@ void insertAfter(LinkedList *list, int elementValue, int target) {
     }
 }
 
-void delete(LinkedList *list, int elementValue) {
+void deleteFirstOccurence(LinkedList *list, int elementValue) {
     if (list == NULL) {
         exit(EXIT_FAILURE);
     }
@@ -157,7 +157,7 @@ void display(LinkedList *list) {
     Element *current = list->first;
 
     while (current != NULL) {
-        printf("[%d %d] -> ", current->data, current->next);
+        printf("[%d : %d | %d] -> ", current, current->data, current->next);
         current = current->next;
     }
     printf("NULL\n");
