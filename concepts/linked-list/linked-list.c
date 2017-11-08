@@ -47,16 +47,32 @@ void append(LinkedList *list, int elementValue) {
 }
 
 void delete(LinkedList *list, int elementValue) {
+    if (list == NULL) {
+        exit(EXIT_FAILURE);
+    }
     Element *current = list->first;
 
     if (current == NULL) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (current->data == elementValue) {
+        if (current->next != NULL) {
+            Element* toBeDeleted = list->first;
+            list->first = current->next;
+            free(toBeDeleted);
+        } else {
+            current = NULL;
+        }
         return;
     }
 
     while (current->next != NULL) {
         if (current->next->data == elementValue) {
+            Element* toBeDeleted = current->next;
             current->next = current->next->next;
-            break;
+            free(toBeDeleted);
+            return;
         }
         current = current->next;
     }
@@ -70,7 +86,7 @@ void display(LinkedList *list) {
     Element *current = list->first;
 
     while (current != NULL) {
-        printf("%d -> ", current->data);
+        printf("[%d %d] -> ", current->data, current->next);
         current = current->next;
     }
     printf("NULL\n");
