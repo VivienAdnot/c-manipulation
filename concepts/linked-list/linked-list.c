@@ -76,22 +76,22 @@ void delete(LinkedList *list, int elementValue) {
         exit(EXIT_FAILURE);
     }
 
-    Element *current = list->first;
-
-    if (current == NULL) {
+    if (list->first == NULL) {
         exit(EXIT_FAILURE);
     }
 
-    if (current->data == elementValue) {
-        if (current->next != NULL) {
+    if (list->first->data == elementValue) {
+        if (list->first->next != NULL) {
             Element* toBeDeleted = list->first;
-            list->first = current->next;
+            list->first = list->first->next;
             free(toBeDeleted);
         } else {
-            current = NULL;
+            list->first = NULL;
         }
         return;
     }
+
+    Element *current = list->first;
 
     while (current->next != NULL) {
         if (current->next->data == elementValue) {
