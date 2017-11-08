@@ -10,6 +10,7 @@ struct Element
 typedef struct LinkedList LinkedList;
 struct LinkedList {
     Element *first;
+    int length;
 };
 
 LinkedList *init(int elementValue) {
@@ -24,6 +25,7 @@ LinkedList *init(int elementValue) {
     element->next = NULL;
 
     list->first = element;
+    list->length = 1;
 
     return list;
 }
@@ -47,6 +49,8 @@ void prepend(LinkedList *list, int elementValue) {
 
         list->first = newElement;
     }
+
+    list->length++;
 }
 
 void append(LinkedList *list, int elementValue) {
@@ -62,6 +66,8 @@ void append(LinkedList *list, int elementValue) {
 
     if (current == NULL) {
         current = newElement;
+        list->length++;
+        return;
     }
 
     while (current->next != NULL) {
@@ -69,6 +75,7 @@ void append(LinkedList *list, int elementValue) {
     }
 
     current->next = newElement;
+    list->length++;
 }
 
 void insertAfter(LinkedList *list, int elementValue, int target) {
@@ -86,6 +93,7 @@ void insertAfter(LinkedList *list, int elementValue, int target) {
         newElement->next = list->first->next;
 
         list->first->next = newElement;
+        list->length++;
         return;
     }
 
@@ -100,6 +108,7 @@ void insertAfter(LinkedList *list, int elementValue, int target) {
             newElement->next = current->next;
 
             current->next = newElement;
+            list->length++;
             return;
         }
     }
@@ -122,6 +131,7 @@ void delete(LinkedList *list, int elementValue) {
         } else {
             list->first = NULL;
         }
+        list->length--;
         return;
     }
 
@@ -132,6 +142,7 @@ void delete(LinkedList *list, int elementValue) {
             Element* toBeDeleted = current->next;
             current->next = current->next->next;
             free(toBeDeleted);
+            list->length--;
             return;
         }
         current = current->next;
@@ -163,21 +174,7 @@ void clear(LinkedList *list) {
         Element* toBeDeleted = current;
         current = current->next;
         free(toBeDeleted);
+        list->length--;
     }
     list->first = NULL;
-}
-
-int length(LinkedList *list) {
-    if (list == NULL) {
-        return 0;
-    }
-
-    int counter = 0;
-    Element *current = list->first;
-
-    while (current != NULL) {
-        counter += 1;
-        current = current->next;
-    }
-    return counter;
 }
