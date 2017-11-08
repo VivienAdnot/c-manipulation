@@ -7,3 +7,4 @@ void prepend(LinkedList *list, int elementValue);
 void insertAfter(LinkedList *list, int elementValue, int target);
 void delete(LinkedList *list, int elementValue);
 void clear(LinkedList *list);
+int length(LinkedList *list);
