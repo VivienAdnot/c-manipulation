@@ -71,6 +71,40 @@ void append(LinkedList *list, int elementValue) {
     current->next = newElement;
 }
 
+void insertAfter(LinkedList *list, int elementValue, int target) {
+    if (list == NULL) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (list->first == NULL) {
+        exit(EXIT_FAILURE);
+    }
+
+    if (list->first->data == target) {
+        Element *newElement = malloc(sizeof(*newElement));
+        newElement->data = elementValue;
+        newElement->next = list->first->next;
+
+        list->first->next = newElement;
+        return;
+    }
+
+    Element *current = list->first;
+
+    while (current->next != NULL) {
+        current = current->next;
+
+        if (current->data == target) {
+            Element *newElement = malloc(sizeof(*newElement));
+            newElement->data = elementValue;
+            newElement->next = current->next;
+
+            current->next = newElement;
+            return;
+        }
+    }
+}
+
 void delete(LinkedList *list, int elementValue) {
     if (list == NULL) {
         exit(EXIT_FAILURE);
