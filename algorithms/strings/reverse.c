@@ -6,6 +6,7 @@ char* reverse(const char* str1) {
     int j = 0;
     int length = strlen(str1);
 
+    // we use length + 1 because we need to insert the ending char
     char* str2 = malloc((length + 1) * sizeof(char));
 
     for (i = length - 1; i >= 0; i--) {
